@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог букетов, композиций и комнатных растений: категории, фильтры и цены.">
+  <title>Каталог товаров — FloraShop</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Каталог товаров — FloraShop">
+  <meta property="og:description" content="Каталог букетов, композиций и комнатных растений: категории, фильтры и цены.">
+  <meta property="og:image" content="https://nikasivv.github.io/kr4-js-shop/images/preview.jpg">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">Flora<span class="site-header__logo-accent">Shop</span></a>
+
+      <a class="cart-link" href="cart.html">
+        <span class="cart-link__text">Корзина</span>
+        <span class="cart-link__count" hidden>0</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+        <span class="menu-toggle__text">Меню</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current" aria-current="page">Каталог</span>
+    </nav>
+
+    <section class="section">
+      <h1 class="section__title">Каталог товаров</h1>
+      <p class="section__text">
+        Букеты, композиции и комнатные растения. Выберите категорию
+        или откройте карточку букета, чтобы посмотреть состав.
+      </p>
+
+      <ul class="categories" aria-label="Категории товаров">
+        <li class="categories__item"><a class="categories__link categories__link--active" href="catalog.html#products" data-category="all" aria-current="page">Все товары</a></li>
+        <li class="categories__item"><a class="categories__link" href="catalog.html?category=bouquets#products" data-category="bouquets">Букеты</a></li>
+        <li class="categories__item"><a class="categories__link" href="catalog.html?category=compositions#products" data-category="compositions">Композиции</a></li>
+        <li class="categories__item"><a class="categories__link" href="catalog.html?category=field#products" data-category="field">Полевые цветы</a></li>
+        <li class="categories__item"><a class="categories__link" href="catalog.html?category=plants#products" data-category="plants">Комнатные растения</a></li>
+      </ul>
+    </section>
+
+    <div class="catalog-layout">
+      <aside class="catalog-filters" aria-labelledby="filters-title">
+        <h2 class="catalog-filters__title" id="filters-title">
+          <button class="catalog-filters__toggle" type="button" aria-expanded="false" aria-controls="catalog-filters-form">
+            Фильтры
+            <span class="catalog-filters__badge" id="filters-active-count" hidden></span>
+          </button>
+          <span class="catalog-filters__heading">Фильтры</span>
+        </h2>
+
+        <form class="catalog-filters__form" id="catalog-filters-form" action="catalog.html" method="get">
+          <div class="catalog-filters__group">
+            <label class="catalog-filters__legend" for="category-filter">Категория</label>
+            <select class="catalog-filters__input" id="category-filter" name="category">
+              <option value="all">Все категории</option>
+              <option value="bouquets">Букеты</option>
+              <option value="compositions">Композиции</option>
+              <option value="field">Полевые цветы</option>
+              <option value="plants">Комнатные растения</option>
+            </select>
+
+            <label class="catalog-filters__option">
+              <input class="catalog-filters__checkbox" id="only-available" type="checkbox" name="available">
+              Только в наличии
+            </label>
+          </div>
+
+          <fieldset class="catalog-filters__group">
+            <legend class="catalog-filters__legend">Цена, ₽</legend>
+
+            <label class="catalog-filters__label" for="price-from">От</label>
+            <input class="catalog-filters__input" id="price-from" name="price-from" type="number" min="0" step="100" inputmode="numeric" placeholder="0">
+
+            <label class="catalog-filters__label" for="price-to">До</label>
+            <input class="catalog-filters__input" id="price-to" name="price-to" type="number" min="0" step="100" inputmode="numeric" placeholder="5000">
+          </fieldset>
+
+          <div class="catalog-filters__actions">
+            <button class="button button--primary" type="submit">Показать</button>
+            <button class="button button--secondary" type="reset">Сбросить</button>
+          </div>
+        </form>
+      </aside>
+
+      <section class="catalog-products" id="products" aria-labelledby="products-title">
+        <div class="section__header">
+          <h2 class="section__title section__title--inline" id="products-title">Список товаров</h2>
+          <p class="catalog-products__count catalog-count" id="products-count" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="catalog-toolbar__group catalog-toolbar__group--search">
+            <label class="catalog-toolbar__label" for="catalog-search">Поиск по названию</label>
+            <input class="catalog-toolbar__input" id="catalog-search" type="search" placeholder="Например, пионы" autocomplete="off">
+          </div>
+
+          <div class="catalog-toolbar__group">
+            <label class="catalog-toolbar__label" for="sort-select">Сортировка</label>
+            <select class="catalog-toolbar__input" id="sort-select">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="title-asc">По названию, А–Я</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Карточки создаёт js/catalog.js из массива products (js/data.js) -->
+        <div class="products-grid" data-products-container></div>
+
+        <div class="catalog-empty" hidden>
+          <p class="catalog-empty__icon" aria-hidden="true">🌱</p>
+          <p class="catalog-empty__title">Ничего не нашлось</p>
+          <p class="catalog-empty__text"></p>
+          <button class="button button--primary" type="button" data-action="reset-catalog">Сбросить поиск и фильтры</button>
+        </div>
+
+        <noscript>
+          <p class="catalog-products__empty">Каталог формируется с помощью JavaScript — включите его в браузере.</p>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <div class="site-footer__column">
+        <p class="site-footer__title">FloraShop</p>
+        <p class="site-footer__text">Учебный интернет-магазин цветов и комнатных растений.</p>
+      </div>
+
+      <nav class="site-footer__column" aria-label="Навигация в подвале">
+        <p class="site-footer__title">Разделы</p>
+        <a class="site-footer__link" href="catalog.html">Каталог</a>
+        <a class="site-footer__link" href="order.html">Оформить заявку</a>
+        <a class="site-footer__link" href="contacts.html">Контакты</a>
+      </nav>
+
+      <div class="site-footer__column">
+        <p class="site-footer__title">Контакты</p>
+        <a class="site-footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a>
+        <a class="site-footer__link" href="mailto:info@example.com">info@example.com</a>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__text">&copy; 2026 Учебный проект. Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
+  </footer>
+
+  <p class="success-message" id="success-message" role="status" aria-live="polite"></p>
+
+  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+</body>
+</html>
